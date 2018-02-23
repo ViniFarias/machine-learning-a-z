@@ -1,5 +1,7 @@
 # Multiple Linear Regression
 
+# Data Preprocessing Template
+
 # Importing the libraries
 import numpy as np
 import matplotlib.pyplot as plt
@@ -11,9 +13,10 @@ X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, 4].values
 
 # Encoding categorical data
+# Encoding the Independent Variable
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
-labelencoder = LabelEncoder()
-X[:, 3] = labelencoder.fit_transform(X[:, 3])
+labelencoder_X = LabelEncoder()
+X[:, 3] = labelencoder_X.fit_transform(X[:, 3])
 onehotencoder = OneHotEncoder(categorical_features = [3])
 X = onehotencoder.fit_transform(X).toarray()
 
@@ -31,11 +34,3 @@ X_train = sc_X.fit_transform(X_train)
 X_test = sc_X.transform(X_test)
 sc_y = StandardScaler()
 y_train = sc_y.fit_transform(y_train)"""
-
-# Fitting Multiple Linear Regression to the Training set
-from sklearn.linear_model import LinearRegression
-regressor = LinearRegression()
-regressor.fit(X_train, y_train)
-
-# Predicting the Test set results
-y_pred = regressor.predict(X_test)
