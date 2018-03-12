@@ -34,7 +34,7 @@ ggplot() +
              colour = 'red') +
   geom_line(aes(x = dataset$Level, y = predict(lin_reg, newdata = dataset)),
             colour = 'blue') +
-  ggtitle('Salary vs Level') +
+  ggtitle('Truth or Bluff (Linear Regression') +
   xlab('Level') +
   ylab('Salary')
 
